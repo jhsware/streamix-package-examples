@@ -1,0 +1,69 @@
+// Base styling
+
+/*
+- fonts can be selected in livemix?
+  - load fonts to project
+  - always allow selecting fonts from project
+  - allow default font for package
+- size and position set in livemix
+  - allow setting origin
+    - left|center|right
+    - top|center|bottom
+  - allow setting offset from origin +/-
+  - allow setting scale
+- use css variables for user defined values
+  - set default values
+  - app injects user values
+- make sure animation translate uses size (%) and offset values
+- define edit form in json using isomorphic-schema style forms
+  - need colour picker
+  - need font selector
+  - need placement values (set by livemix)
+- pass content variables to container through props
+- how to handle multi-animations
+- should we edit content variables inline?
+- how to handle image resources?
+- DONE: how to split css and js for easy injection
+*/
+
+
+.graphics-logo {
+  --horiz: 1vw;
+  --vert: 1vw;
+
+  .Logo {
+
+    display: block;
+    position: absolute;
+    width: 5rem;
+    right: var(--horiz);
+    top: var(--vert);
+    clip-path: polygon(0% 0%, 100% 0%, 120% 100%, 0% 100%);
+  }
+
+// Animation
+
+  .Logo {
+    &-enter,
+    &-leave-end { // Start and end with element collapsed and fully transparent
+      // opacity: 0.3; /* Can't use transparency with single GFX-feed */
+      // transform: translateX(calc(-100% - var(--left)));
+      clip-path: polygon(-1% 0%, -20% 0%, 0% 100%, -1% 100%);
+    }
+
+    &-enter-active {
+      transition: all .7s ease-out;
+      pointer-events: none; /* (optional) prevent hover to fire transition events causing early termination */
+    }
+
+    &-leave-active {
+      transition: all .4s ease-out;
+      pointer-events: none; /* (optional) prevent hover to fire transition events causing early termination */
+    }
+
+    &-enter-end,
+    &-leave { // Animate to and from full height with full opacity
+      opacity: 1;
+    }
+  }
+}

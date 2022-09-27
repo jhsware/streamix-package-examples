@@ -1,0 +1,15 @@
+{
+  "__type__": "GraphicsPackage",
+  "__version__": "1",
+  "name": "video-player",
+  "displayName": "Fullscreen Video",
+  "description": "Play a video covering the entire view.",
+  "fullScreen": true,
+  "form": {
+    "videoFileName": {
+      "label": "Video Name",
+      "type": "video",
+      "default": "video.mp4"
+    }
+  }
+}

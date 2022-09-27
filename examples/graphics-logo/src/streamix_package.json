@@ -1,0 +1,9 @@
+{
+  "__type__": "GraphicsPackage",
+  "__version__": "1",
+  "name": "graphics-logo",
+  "displayName": "KTH Logo",
+  "description": "Show a nice KTH logo.",
+  "form": {
+  }
+}

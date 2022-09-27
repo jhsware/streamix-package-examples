@@ -1,0 +1,17 @@
+{
+  "__type__": "GraphicsPackage",
+  "__version__": "1",
+  "name": "confetti-celebrate",
+  "displayName": "Confetti",
+  "description": "Shoot some confetti.",
+  "form": {
+    "singleShot": {
+      "label": "Single Shot",
+      "type": "button"
+    },
+    "multiShot": {
+      "label": "Multi Shot",
+      "type": "button"
+    }
+  }
+}

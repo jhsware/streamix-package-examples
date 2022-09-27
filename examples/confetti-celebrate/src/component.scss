@@ -1,0 +1,10 @@
+.confetti-celebrate {
+  --horiz: 1vw;
+  --vert: 1vw;
+
+  .Confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,37 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+# NPM & Yarn
+node_modules/
+package-lock.json
+yarn.lock
+
+# Parcel output folder.
+dist/
+.parcel-cache/
+distSample
+packages/simple-peer-wrapper
+graphicsPackages/graphics-logo/build
+graphicsPackages/graphics-name-tag/build
+graphicsPackages/stinger-poc/build
+graphicsPackages/video-player/build
+graphicsPackages/supersource-poc/build
+graphicsPackages/graphics-confetti/build

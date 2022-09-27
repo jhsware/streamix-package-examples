@@ -1,0 +1,14 @@
+{
+  "name": "streamix-package-examples",
+  "private": true,
+  "version": "1.0.0-beta.1",
+  "description": "",
+  "engines": {
+    "node": ">=16"
+  },
+  "author": "Sebastian Ware <sebastian@urbantalk.se>",
+  "license": "MIT",
+  "workspaces": [
+    "examples/*"
+  ]
+}

@@ -1,0 +1,42 @@
+// Base styling
+
+/*
+- fonts can be selected in livemix?
+  - load fonts to project
+  - always allow selecting fonts from project
+  - allow default font for package
+- size and position set in livemix
+  - allow setting origin
+    - left|center|right
+    - top|center|bottom
+  - allow setting offset from origin +/-
+  - allow setting scale
+- use css variables for user defined values
+  - set default values
+  - app injects user values
+- make sure animation translate uses size (%) and offset values
+- define edit form in json using isomorphic-schema style forms
+  - need colour picker
+  - need font selector
+  - need placement values (set by livemix)
+- pass content variables to container through props
+- how to handle multi-animations
+- should we edit content variables inline?
+- how to handle image resources?
+- DONE: how to split css and js for easy injection
+*/
+
+
+.video-player {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
