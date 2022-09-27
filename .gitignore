@@ -21,7 +21,6 @@ Thumbs.db
 
 # NPM & Yarn
 node_modules/
-package-lock.json
 yarn.lock
 
 # Parcel output folder.
