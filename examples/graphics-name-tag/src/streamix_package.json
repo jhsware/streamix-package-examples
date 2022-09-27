@@ -1,0 +1,23 @@
+{
+  "__type__": "GraphicsPackage",
+  "__version__": "1",
+  "name": "name-tag",
+  "displayName": "Name Tag",
+  "description": "Show a nice name tag.",
+  "form": {
+    "name": {
+      "label": "Name",
+      "type": "string",
+      "min": 0,
+      "max": 40,
+      "default": "Leonardo da Vinci"
+    },
+    "title": {
+      "label": "Title",
+      "type": "string",
+      "min": 0,
+      "max": 50,
+      "default": "Video Creator"
+    }
+  }
+}
