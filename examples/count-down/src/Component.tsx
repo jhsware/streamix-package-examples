@@ -38,10 +38,17 @@ class Counter extends Component<ICounterProps> {
   _tick() {
     const now = new Date();
     const [th, tm, ts] = this.props.targetTime.split(':').map(i => parseInt(i));
-    const target = new Date(now);
+    let target = new Date(now);
     target.setHours(th);
     target.setMinutes(tm);
     target.setSeconds(ts);
+
+    // Allow us to set a target time past midnight
+    // Limit to 23 hours in advance
+    if ((target.getTime() - now.getTime()) / 1000 < -3600) {
+      target = new Date(target.getTime() + (24 * 60 * 60 * 1000));
+    }
+
     const diffInSecs = (target.getTime() - now.getTime()) / 1000;
     if (diffInSecs <= 0) {
       return this.setState({
