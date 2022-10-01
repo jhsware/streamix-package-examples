@@ -1,0 +1,20 @@
+{
+  "__type__": "GraphicsPackage",
+  "__version__": "1",
+  "name": "countdown-timer",
+  "displayName": "Count down",
+  "description": "Count down to programme start.",
+  "fullScreen": true,
+  "form": {
+    "targetTime": {
+      "label": "Target time (HH:mm:ss)",
+      "type": "string",
+      "default": "23:59:59"
+    },
+    "title": {
+      "label": "Title (optional)",
+      "type": "string",
+      "default": "Show starts in:"
+    }
+  }
+}
