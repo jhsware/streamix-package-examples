@@ -13,7 +13,22 @@ There are three types of packages. They are all coded in the same way but differ
 - **fullscreen graphics overlay:** used for video playback or fullscreen graphics
 - **stinger:** used for stinger transitions
 
-## How to Run the Examples
+## How to Build the Examples
+You can build these examples and import them into Streamix Panel.
+
+1. Open a terminal
+
+2. Go to the root directory
+
+3. Install and run the build command:
+
+```sh
+npm i && npm run build:all
+```
+
+You can find the importable backages in each examples `build/` folder.
+
+## How to Run the Examples in a Browser
 1. Check out the example repos using Git or download a ZIP-file (press the green button named "Code v")
 
 ```sh
