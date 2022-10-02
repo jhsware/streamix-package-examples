@@ -13,21 +13,6 @@ There are three types of packages. They are all coded in the same way but differ
 - **fullscreen graphics overlay:** used for video playback or fullscreen graphics
 - **stinger:** used for stinger transitions
 
-## How to Build the Examples
-You can build these examples and import them into Streamix Panel.
-
-1. Open a terminal
-
-2. Go to the root directory
-
-3. Install and run the build command:
-
-```sh
-npm i && npm run build:all
-```
-
-You can find the importable backages in each examples `build/` folder.
-
 ## How to Run the Examples in a Browser
 1. Check out the example repos using Git or download a ZIP-file (press the green button named "Code v")
 
@@ -58,6 +43,21 @@ PORT=8080 npm run dev
 You can now open a webpage at the address shown in the terminal. It is recomended to use Safari for preview because it uses the same rendering engine as the Streamix Panel app, but both Chrome and Edge will work if nothing else is available.
 
 **NOTE:** Source maps are currently broken in these examples. Setting breakpoints in browser won't be useful.
+
+## How to Build the Examples for Streamix Panel
+You can build these examples and import them into Streamix Panel.
+
+1. Open a terminal
+
+2. Go to the root directory
+
+3. Install and run the build command:
+
+```sh
+npm run build:all
+```
+
+You can find the importable backages in each examples `build/` folder.
 
 ## Example Packages
 - **confetti-celibrate:** shoot some confetti at the push of a button
