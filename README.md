@@ -41,3 +41,14 @@ PORT=8080 npm run dev
 ```
 
 You can now open a webpage at the address shown in the terminal. It is recomended to use Safari for preview because it uses the same rendering engine as the Streamix Panel app, but both Chrome and Edge will work if nothing else is available.
+
+**NOTE:** Source maps are currently broken in these examples. Setting breakpoints in browser won't be useful.
+
+## Example Packages
+- **confetti-celibrate:** shoot some confetti at the push of a button
+- **count-down:** add a fullscreen countdown timer with target time
+- **fetch-json:** fetch and display a comment from an external API
+- **graphics-logo:** show an image on screen
+- **graphics-name-tag:** show a name tag with customisable text
+- **stinger-poc:** perform a stinger transition to switch between scenes
+- **video-player:** show fullscreen video content (from your project video folder)

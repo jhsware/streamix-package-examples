@@ -1,0 +1,23 @@
+{
+  "__type__": "GraphicsPackage",
+  "__version__": "1",
+  "name": "fetch-json",
+  "displayName": "Fetch JSON",
+  "description": "Fetch JSON data from dummy server.",
+  "form": {
+    "fetchOne": {
+      "label": "Fetch One",
+      "type": "button"
+    },
+    "endpointUri": {
+      "label": "Endpoint URI",
+      "type": "string",
+      "default": "https://dummyjson.com/comments/$id"
+    },
+    "duration": {
+      "label": "Duration (ms)",
+      "type": "string",
+      "default": "5000"
+    }
+  }
+}
