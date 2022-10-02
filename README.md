@@ -45,7 +45,7 @@ You can now open a webpage at the address shown in the terminal. It is recomende
 **NOTE:** Source maps are currently broken in these examples. Setting breakpoints in browser won't be useful.
 
 ## How to Build the Examples for Streamix Panel
-You can build these examples and import them into Streamix Panel. Follow sted 1 & 2 in "How to Run the Examples in a Browser", then run the build command:
+You can build these examples and import them into Streamix Panel. Follow steps 1 & 2 in "How to Run the Examples in a Browser", then run the build command:
 
 ```sh
 npm run build:all
