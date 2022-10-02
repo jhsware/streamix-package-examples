@@ -51,7 +51,7 @@ You can build these examples and import them into Streamix Panel. Follow steps 1
 npm run build:all
 ```
 
-You can find the importable backages in each examples `build/` folder.
+You can find the importable packages in each examples `build/` folder.
 
 ## Example Packages
 - **confetti-celibrate:** shoot some confetti at the push of a button
