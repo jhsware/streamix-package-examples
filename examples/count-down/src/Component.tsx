@@ -1,5 +1,6 @@
 import { Component } from 'inferno';
 import { componentDidAppear, componentWillDisappear } from 'inferno-animation';
+import { domainToASCII } from 'url';
 import { name } from './streamix_package.json';
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -28,13 +29,13 @@ class Counter extends Component<ICounterProps> {
   componentDidMount(): void {
     this._timer = setInterval(this._tick, 100);
   }
-  
+
   componentWillUnmount(): void {
     if (this._timer) {
       clearInterval(this._timer);
     }
   }
-  
+
   _tick() {
     const now = new Date();
     const [th, tm, ts] = this.props.targetTime.split(':').map(i => parseInt(i));
@@ -97,11 +98,24 @@ function Digit({ children, ...other }) {
   return <i className="digit">{children}</i>
 }
 
-export default function Container({id, isNext, isStaged, data}) {
+function Backdrop({ children, ...other }) {
+  return <div className="Backdrop">{children}</div>
+}
+
+function blockChildAnimOnAppear() {};
+function blockChildAnimOnWillDisappear(dom, props, cb) { cb() };
+
+export default function Container({ id, isNext, isStaged, data }) {
   const { targetTime, title } = data;
 
+  if (!isStaged) return null;
+
   return <div className={name}>
-    {isStaged && title && <div className="title">{title}</div>}
-    {isStaged && <Counter targetTime={targetTime} title={title} />}
+    <Backdrop
+      onComponentDidAppear={blockChildAnimOnAppear}
+      onComponentWillDisappear={blockChildAnimOnWillDisappear}>
+      {title && <div className="title">{title}</div>}
+      <Counter targetTime={targetTime} title={title} />
+    </Backdrop>
   </div>
 }
