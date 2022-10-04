@@ -27,10 +27,4 @@ yarn.lock
 dist/
 .parcel-cache/
 distSample
-packages/simple-peer-wrapper
-graphicsPackages/graphics-logo/build
-graphicsPackages/graphics-name-tag/build
-graphicsPackages/stinger-poc/build
-graphicsPackages/video-player/build
-graphicsPackages/supersource-poc/build
-graphicsPackages/graphics-confetti/build
+examples/*/build
