@@ -6,6 +6,7 @@ var count = 200;
 var defaults = {
   origin: { y: 1.0 }
 };
+var scale = 1.75;
 
 function fire(confetti, particleRatio, opts) {
   confetti(Object.assign({}, defaults, opts, {
@@ -32,24 +33,27 @@ class Confetti extends Component<IConfettiProps> {
     fire(this._confetti, 0.25, {
       spread: 26,
       startVelocity: 55,
+      scalar: 1.0 * scale
     });
     fire(this._confetti, 0.2, {
       spread: 60,
+      scalar: 1.0 * scale
     });
     fire(this._confetti, 0.35, {
       spread: 100,
       decay: 0.91,
-      scalar: 0.8
+      scalar: 0.8 * scale
     });
     fire(this._confetti, 0.1, {
       spread: 120,
       startVelocity: 25,
       decay: 0.92,
-      scalar: 1.2
+      scalar: 1.2 * scale
     });
     fire(this._confetti, 0.1, {
       spread: 120,
       startVelocity: 45,
+      scalar: 1.0 * scale
     });
   }
 
