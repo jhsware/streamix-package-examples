@@ -2,8 +2,8 @@
   "__type__": "GraphicsPackage",
   "__version__": "1",
   "name": "graphics-logo",
-  "displayName": "KTH Logo",
-  "description": "Show a nice KTH logo.",
+  "displayName": "Streamix Panel Logo",
+  "description": "Show the Streamix Panel logo in the top right.",
   "form": {
   }
 }
