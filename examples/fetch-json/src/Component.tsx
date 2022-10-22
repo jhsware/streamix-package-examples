@@ -81,8 +81,8 @@ class CommentContainer extends Component<TCommentContainerProps> {
         key={`comment-${this.state.id}`}
         userName={this.state.userName}
         text={this.state.text}
-        onComponentDidAppear={componentDidAppear}
-        onComponentWillDisappear={componentWillDisappear}
+        onComponentDidAppear={componentDidAppear as any}
+        onComponentWillDisappear={componentWillDisappear as any}
         animation="CommentAnim" />
     )
   }

@@ -22,8 +22,8 @@ export default function Container({id, name, isStaged, data}) {
   return <div className="name-tag">
     {isStaged && <NameTag
       value={data}
-      onComponentDidAppear={componentDidAppear}
-      onComponentWillDisappear={componentWillDisappear}
+      onComponentDidAppear={componentDidAppear as any}
+      onComponentWillDisappear={componentWillDisappear as any}
       animation="NameTag" />}
   </div>
 }

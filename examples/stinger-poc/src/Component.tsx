@@ -10,13 +10,13 @@ type TInfernoFnCompProps = {
 export default function Container({id, name, isStaged, data}) {
   return <div className="poc-stinger">
     {isStaged && <Background 
-      onComponentDidAppear={componentDidAppear}
-      onComponentWillDisappear={componentWillDisappear}
+      onComponentDidAppear={componentDidAppear as any}
+      onComponentWillDisappear={componentWillDisappear as any}
       animation="Background" />}
     {isStaged && <Title
       value={data}
-      onComponentDidAppear={componentDidAppear}
-      onComponentWillDisappear={componentWillDisappear}
+      onComponentDidAppear={componentDidAppear as any}
+      onComponentWillDisappear={componentWillDisappear as any}
       animation="Title" />}
   </div>
 }

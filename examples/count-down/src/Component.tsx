@@ -84,8 +84,8 @@ class Counter extends Component<ICounterProps> {
       <div className="Background">
         <div className="clock">{
           tmp.map((n, index) => <Digit
-            onComponentDidAppear={componentDidAppear}
-            onComponentWillDisappear={componentWillDisappear}
+            onComponentDidAppear={componentDidAppear as any}
+            onComponentWillDisappear={componentWillDisappear as any}
             animation="DigitAnim"
             key={`${index}-${n}`}>{n}</Digit>)
         }</div>
@@ -112,8 +112,8 @@ export default function Container({ id, isNext, isStaged, data }) {
 
   return <div className={name}>
     <Backdrop
-      onComponentDidAppear={blockChildAnimOnAppear}
-      onComponentWillDisappear={blockChildAnimOnWillDisappear}>
+      onComponentDidAppear={blockChildAnimOnAppear as any}
+      onComponentWillDisappear={blockChildAnimOnWillDisappear as any}>
       {title && <div className="title">{title}</div>}
       <Counter targetTime={targetTime} title={title} />
     </Backdrop>
