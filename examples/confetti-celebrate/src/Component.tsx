@@ -1,10 +1,14 @@
 import { Component } from 'inferno';
 import { globalRegistry, Utility } from 'component-registry';
-import { componentDidAppear, componentWillDisappear } from 'inferno-animation';
 import { IGraphicsEffectUtil } from 'streamix-interfaces';
 import * as config from './streamix_package.json';
 import './component.scss';
 import confetti from 'canvas-confetti';
+
+/*
+  TODO: The canvas-confetti needs to be forked so we can mirror the off-screen canvas
+  to the graphics instance and the keyer instance.
+*/
 
 var count = 200;
 var defaults = {
