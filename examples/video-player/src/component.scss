@@ -1,14 +1,31 @@
+@import '../../../node_modules/streamix-runtime/src/_utils.scss';
+
 .video-player {
   position: relative;
   width: 100%;
   height: 100%;
 
-  & > video {
+  .video-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-container > video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+#streamix-opacity .video-player > div {
+  opacity: 1;
+  color: white!important;
+  background-color: white!important;
+
+  video {
+    display: none;
   }
 }
