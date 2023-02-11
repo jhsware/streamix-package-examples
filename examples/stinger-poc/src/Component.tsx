@@ -1,27 +1,10 @@
+import { globalRegistry, Utility } from 'component-registry';
 import { componentDidAppear, componentWillDisappear } from 'inferno-animation';
+import { IStingerTransitionUtil } from 'streamix-interfaces';
+import * as config from './streamix_package.json';
+import './component.scss';
 
-type TInfernoFnCompProps = {
-  value?: object;
-  onComponentDidAppear?: (dom: HTMLElement, props) => void;
-  onComponentWillDisappear?: (dom: HTMLElement, props: any, callback: Function) => void;
-  animation: string;
-}
-
-export default function Container({id, name, isStaged, data}) {
-  return <div className="poc-stinger">
-    {isStaged && <Background 
-      onComponentDidAppear={componentDidAppear as any}
-      onComponentWillDisappear={componentWillDisappear as any}
-      animation="Background" />}
-    {isStaged && <Title
-      value={data}
-      onComponentDidAppear={componentDidAppear as any}
-      onComponentWillDisappear={componentWillDisappear as any}
-      animation="Title" />}
-  </div>
-}
-
-function Title({value}: TInfernoFnCompProps) {
+function Title({value, animation}) {
   return (
     <div className="Title">
       <div className="inner">
@@ -32,7 +15,7 @@ function Title({value}: TInfernoFnCompProps) {
   )
 }
 
-function Background({} : TInfernoFnCompProps) {
+function Background({animation}) {
   return (
     <div className="Background">
       <div className="Plate"></div>
@@ -43,4 +26,24 @@ function Background({} : TInfernoFnCompProps) {
       <div className="Bar_5"></div>
     </div>
   )
+}
+
+@globalRegistry.register
+export default class StingerTransitionUtil extends Utility<IStingerTransitionUtil> {
+  static __implements__ = IStingerTransitionUtil;
+  static __name__ = config.name;
+
+  static __Component__({id, name, isStaged, data}) {
+    return <div className={config.name}>
+    {isStaged && <Background 
+      onComponentDidAppear={componentDidAppear}
+      onComponentWillDisappear={componentWillDisappear}
+      animation="Background" />}
+    {isStaged && <Title
+      value={data}
+      onComponentDidAppear={componentDidAppear}
+      onComponentWillDisappear={componentWillDisappear}
+      animation="Title" />}
+    </div>
+  }
 }
