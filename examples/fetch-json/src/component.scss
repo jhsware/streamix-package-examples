@@ -1,4 +1,13 @@
+@import '../../../node_modules/streamix-runtime/src/_utils.scss';
+
 .fetch-json {
+  --horiz: #{dsu(0.5)};
+  --vert: #{dsu(0.5)};
+  --primaryBg: lightcoral;
+  --primaryText: wheat;
+  --primaryFont: "Helvetica Neue", sans-serif;
+  --secondaryText: white;
+
   display: flex;
   position: relative;
   width: 100%;
@@ -9,19 +18,22 @@
   padding: 2rem 3rem;
 
   .Comment {
-    padding: 2rem 3rem;
-    background-color: lightcoral;
-    border-radius: 0.5rem 2rem;
+    overflow: hidden;
+
+    padding: dsu(0.85) dsu(1.25);
+    background-color: var(--primaryBg);
+    border-radius: dsu(0.25) dsu(1.5);
     flex-grow: 0;
+    font-family: var(--primaryFont);
     
-    font-size: 1.1rem;
+    font-size: dsu(0.6);
     
     h2 {
-      color: wheat;
-      font-size: 1.5em;
+      color: var(--primaryText);
+      font-size: 1.25em;
     }
     p {
-      color: white;
+      color: var(--secondaryText);
       font-size: 1.5em;
     }
   }
@@ -42,10 +54,19 @@
       transition: all 0.6s;
       pointer-events: none; /* (optional) prevent hover to fire transition events causing early termination */
     }
+  }
+}
 
-    &-enter-end,
-    &-leave {
-      
+#streamix-opacity .fetch-json {
+  .Comment {
+    opacity: 1;
+    color: white!important;
+    background-color: white!important;
+    opacity: 0.85;
+
+    & * {
+      visibility: hidden;
     }
   }
 }
+

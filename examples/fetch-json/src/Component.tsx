@@ -1,7 +1,9 @@
-import { Component, Inferno } from 'inferno';
+import { Component } from 'inferno';
+import { globalRegistry, Utility } from 'component-registry';
 import { componentDidAppear, componentWillDisappear } from 'inferno-animation';
-import { name } from './streamix_package.json';
-
+import { IGraphicsEffectUtil } from 'streamix-interfaces';
+import * as config from './streamix_package.json';
+import './component.scss';
 const isProd = process.env.NODE_ENV === 'production';
 
 type TCommentContainerProps = {
@@ -35,7 +37,7 @@ class CommentContainer extends Component<TCommentContainerProps> {
     this._doHideComment = this._doHideComment.bind(this);
   }
 
-  componentDidUpdate(prevProps): void {
+  componentDidUpdate(prevProps) {
     if (this.props.fetchOne && !prevProps.fetchOne) {
       this._fetchComment()
     }
@@ -81,8 +83,8 @@ class CommentContainer extends Component<TCommentContainerProps> {
         key={`comment-${this.state.id}`}
         userName={this.state.userName}
         text={this.state.text}
-        onComponentDidAppear={componentDidAppear as any}
-        onComponentWillDisappear={componentWillDisappear as any}
+        onComponentDidAppear={componentDidAppear}
+        onComponentWillDisappear={componentWillDisappear}
         animation="CommentAnim" />
     )
   }
@@ -97,11 +99,17 @@ function Comment({ userName, text, ...other }) {
   )
 }
 
+@globalRegistry.register
+export default class GraphicsEffectUtil extends Utility<IGraphicsEffectUtil> {
+  static __implements__ = IGraphicsEffectUtil;
+  static __name__ = config.name;
 
-export default function Container({ id, isNext, isStaged, data }) {
-  const { endpointUri, duration, fetchOne } = data;
+  static __Component__({id, name, isStaged, data}) {
+    const { endpointUri, duration, fetchOne } = data;
 
-  return <div className={name}>
-    {isStaged && <CommentContainer endpointUri={endpointUri} duration={parseInt(duration)} fetchOne={fetchOne} />}
-  </div>
+    return <div className={config.name}>
+      {isStaged && <CommentContainer endpointUri={endpointUri} duration={parseInt(duration)} fetchOne={fetchOne} />}
+    </div>
+  }
 }
+

@@ -1,7 +1,10 @@
+import { globalRegistry, Utility } from 'component-registry';
 import { Component } from 'inferno';
 import { componentDidAppear, componentWillDisappear } from 'inferno-animation';
-import { domainToASCII } from 'url';
-import { name } from './streamix_package.json';
+import { IGraphicsEffectUtil } from 'streamix-interfaces';
+import * as config from './streamix_package.json';
+import './component.scss';
+
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -84,8 +87,8 @@ class Counter extends Component<ICounterProps> {
       <div className="Background">
         <div className="clock">{
           tmp.map((n, index) => <Digit
-            onComponentDidAppear={componentDidAppear as any}
-            onComponentWillDisappear={componentWillDisappear as any}
+            onComponentDidAppear={componentDidAppear}
+            onComponentWillDisappear={componentWillDisappear}
             animation="DigitAnim"
             key={`${index}-${n}`}>{n}</Digit>)
         }</div>
@@ -105,17 +108,23 @@ function Backdrop({ children, ...other }) {
 function blockChildAnimOnAppear() {};
 function blockChildAnimOnWillDisappear(dom, props, cb) { cb() };
 
-export default function Container({ id, isNext, isStaged, data }) {
-  const { targetTime, title } = data;
+@globalRegistry.register
+export default class GraphicsEffectUtil extends Utility<IGraphicsEffectUtil> {
+  static __implements__ = IGraphicsEffectUtil;
+  static __name__ = config.name;
 
-  if (!isStaged) return null;
+  static __Component__({id, name, isStaged, data}) {
+    const { targetTime, title } = data;
 
-  return <div className={name}>
-    <Backdrop
-      onComponentDidAppear={blockChildAnimOnAppear as any}
-      onComponentWillDisappear={blockChildAnimOnWillDisappear as any}>
-      {title && <div className="title">{title}</div>}
-      <Counter targetTime={targetTime} title={title} />
-    </Backdrop>
-  </div>
+    if (!isStaged) return null;
+  
+    return <div className={config.name}>
+      <Backdrop
+        onComponentDidAppear={blockChildAnimOnAppear}
+        onComponentWillDisappear={blockChildAnimOnWillDisappear}>
+        {title && <div className="title">{title}</div>}
+        <Counter targetTime={targetTime} title={title} />
+      </Backdrop>
+    </div>
+  }
 }

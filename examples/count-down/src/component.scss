@@ -1,4 +1,14 @@
+@import '../../../node_modules/streamix-runtime/src/_utils.scss';
+
 .countdown-timer {
+  --horiz: #{dsu(0.5)};
+  --vert: #{dsu(0.5)};
+  --primaryBg: antiquewhite;
+  --primaryText: lightcoral;
+  --primaryFont: "Helvetica Neue", sans-serif;
+  --secondaryBg: lightcoral;
+  --secondaryText: white;
+
   width: 100%;
   height: 100%;
   
@@ -10,20 +20,28 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: antiquewhite;
+    background-color: var(--primaryBg);
   }
 
   .Background {
     padding: 2rem 3rem;
-    background-color: lightcoral;
+    background-color: var(--secondaryBg);
     border-radius: 0.5rem 2rem;
+  }
+
+  .title {
+    font-size: 3em;
+    margin-top: -1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 500;
+    color: var(--primaryText);
   }
 
   .digit {
     display: inline-block;
     font-size: 5em;
     font-style: normal;
-    color: white;
+    color: var(--secondaryText);
     font-weight: 600;
     width: 1em;
   }
@@ -52,12 +70,16 @@
       opacity: 1;
     }
   }
+}
 
-  .title {
-    font-size: 3em;
-    margin-top: -1.5em;
-    margin-bottom: 0.5em;
-    font-weight: 500;
-    color: lightcoral;
+#streamix-opacity .countdown-timer {
+  .Backdrop {
+    opacity: 1;
+    color: white!important;
+    background-color: white!important;
+
+    & * {
+      visibility: hidden;
+    }
   }
 }

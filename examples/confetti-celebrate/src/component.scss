@@ -1,3 +1,5 @@
+@import '../../../node_modules/streamix-runtime/src/_utils.scss';
+
 .confetti-celebrate {
   --horiz: 1vw;
   --vert: 1vw;
@@ -9,4 +11,10 @@
     top: 0;
     left: 0;
   }
+}
+
+#streamix-opacity .confetti-celebrate * {
+  // opacity: 1;
+  // color: white!important;
+  // background-color: white!important;
 }

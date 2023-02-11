@@ -1,5 +1,9 @@
-import { name } from './streamix_package.json';
 import { Component } from 'inferno';
+import { globalRegistry, Utility } from 'component-registry';
+import { componentDidAppear, componentWillDisappear } from 'inferno-animation';
+import { IGraphicsEffectUtil } from 'streamix-interfaces';
+import * as config from './streamix_package.json';
+import './component.scss';
 import confetti from 'canvas-confetti';
 
 var count = 200;
@@ -76,9 +80,14 @@ class Confetti extends Component<IConfettiProps> {
   }
 }
 
+@globalRegistry.register
+export default class GraphicsEffectUtil extends Utility<IGraphicsEffectUtil> {
+  static __implements__ = IGraphicsEffectUtil;
+  static __name__ = config.name;
 
-export default function Container({id, isNext, isStaged, data}) {
-  return <div className="confetti-celebrate">
-    {isStaged && <Confetti data={data} />}
+  static __Component__({id, name, isStaged, data}) {
+    return <div className={config.name}>
+      {isStaged && <Confetti data={data} />}
   </div>
+  }
 }
