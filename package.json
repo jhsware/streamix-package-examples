@@ -9,7 +9,7 @@
   "author": "Sebastian Ware <sebastian@urbantalk.se>",
   "license": "MIT",
   "scripts": {
-    "build:all": "npm run build --workspaces"
+    "build:all": "npm run build:libs --workspaces"
   },
   "workspaces": [
     "examples/*"
